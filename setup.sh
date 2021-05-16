@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 sleep 1
 printf "\n"
 printf "UPDATING LINUX KERNEL IN UBUNTU"
@@ -124,6 +124,12 @@ sudo curl https://raw.githubusercontent.com/vemulasravan6/staticfiles/2c1dbcacd6
 printf "\n"
 sleep 1
 
+printf "DOWNLOADING scrapyd-deploy FILE FROM GIT"
+printf "\n"
+sudo sudo curl https://raw.githubusercontent.com/vemulasravan6/staticfiles/master/scrapyd-deploy -o /usr/local/bin/scrapyd-deploy
+printf "\n"
+sleep 1
+
 printf "\n"
 printf "CREATING /home/ubuntu/code FOR SOURCE CODE"
 printf "\n"
@@ -133,14 +139,13 @@ sudo chmod -R 777  /home/ubuntu/code
 sudo chown -R ubuntu /home/ubuntu/code
 sudo chgrp -R ubuntu /home/ubuntu/code
 sleep 1
-printf "\n" 
+printf "\n"
 
 printf "\n"
 printf "STARTING scrapyd SERVER"
 printf "\n"
-sleep 1 
+sleep 1
 scrapyd > scrapyd.log &
 printf "\n"
 printf "DONE WITH ALL INSTALLATIONS.. SYSTEM IS READY!"
 printf "\n"
-
