@@ -126,7 +126,7 @@ sleep 1
 
 printf "DOWNLOADING scrapyd-deploy FILE FROM GIT"
 printf "\n"
-sudo sudo curl https://raw.githubusercontent.com/vemulasravan6/staticfiles/master/scrapyd-deploy -o /usr/local/bin/scrapyd-deploy
+sudo curl https://raw.githubusercontent.com/vemulasravan6/staticfiles/master/scrapyd-deploy -o /usr/local/bin/scrapyd-deploy
 printf "\n"
 sleep 1
 
