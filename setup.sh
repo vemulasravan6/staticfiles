@@ -176,7 +176,7 @@ printf "\n"
 sleep 1
 cd /home/ubuntu/code/aionics-forage
 scrapyd-deploy pc_deploy -p pubchem
-echo "deployment_succesful" > /home/ubuntu/deployment_success.txt
+sudo echo "deployment_succesful" > /home/ubuntu/deployment_success.txt
 printf "\n"
 printf "DONE WITH ALL INSTALLATIONS.. SYSTEM IS READY!"
 printf "\n"
