@@ -112,6 +112,15 @@ sudo pip3 install scrapyd-client
 sleep 1
 
 printf "\n"
+printf "INSTALLING unzip PACKAGE"
+printf "\n"
+sleep 1
+printf "\n"
+sudo apt install unzip
+sleep 1
+
+
+printf "\n"
 printf "CREATING /etc/scrapyd DIRECTORY"
 printf "\n"
 sudo mkdir -p /etc/scrapyd
@@ -126,7 +135,7 @@ sleep 1
 
 printf "DOWNLOADING scrapyd-deploy FILE FROM GIT"
 printf "\n"
-sudo curl https://raw.githubusercontent.com/vemulasravan6/staticfiles/master/scrapyd-deploy -o /usr/local/bin/scrapyd-deploy
+sudo sudo curl https://raw.githubusercontent.com/vemulasravan6/staticfiles/master/scrapyd-deploy -o /usr/local/bin/scrapyd-deploy
 printf "\n"
 sleep 1
 
@@ -135,9 +144,6 @@ printf "CREATING /home/ubuntu/code FOR SOURCE CODE"
 printf "\n"
 sleep 1
 sudo mkdir -p /home/ubuntu/code
-sudo chmod -R 777  /home/ubuntu/code
-sudo chown -R ubuntu /home/ubuntu/code
-sudo chgrp -R ubuntu /home/ubuntu/code
 sleep 1
 printf "\n"
 
@@ -146,6 +152,30 @@ printf "STARTING scrapyd SERVER"
 printf "\n"
 sleep 1
 scrapyd > scrapyd.log &
+printf "\n"
+printf "STARTED SCRAPYD SERVER !"
+printf "\n"
+
+printf "\n"
+printf "DOWNLOADING CODE FROM S3"
+printf "\n"
+sleep 1
+sudo curl https://aionics.s3.us-east-2.amazonaws.com/code/aionics-forage.zip -o /home/ubuntu/code/aionics-forage.zip
+sudo unzip -o /home/ubuntu/code/aionics-forage.zip -d /home/ubuntu/code
+sleep 1
+printf "CHECK IF CODE AVAILABLE HERE..!"
+sudo chmod -R 777  /home/ubuntu/code
+sudo chown -R ubuntu /home/ubuntu/code
+sudo chgrp -R ubuntu /home/ubuntu/code
+sudo ls -ltrh /home/ubuntu/code/aionics-forage
+sleep 1
+
+printf "\n"
+printf "DEPLOYING CODE TO SCRAPYD SERVER"
+printf "\n"
+sleep 1
+cd /home/ubuntu/code/aionics-forage
+scrapyd-deploy pc_deploy -p pubchem
 printf "\n"
 printf "DONE WITH ALL INSTALLATIONS.. SYSTEM IS READY!"
 printf "\n"
