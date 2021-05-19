@@ -137,18 +137,17 @@ printf "\n"
 sleep 0.5
 
 printf "\n"
-printf "CREATING /home/ubuntu/code FOR SOURCE CODE"
+#printf "CREATING /home/ubuntu/code FOR SOURCE CODE"
 printf "\n"
-sleep 0.5
-sudo mkdir -p /home/ubuntu/code
-sleep 0.5
-printf "\n"
+#sleep 0.5
+#sudo mkdir -p /home/ubuntu/code
+#printf "\n"
 
 printf "\n"
 printf "STARTING scrapyd SERVER"
 printf "\n"
 sleep 0.5
-sudo scrapyd > scrapyd.log &
+ sudo scrapyd > scrapyd.log &
 printf "\n"
 printf "STARTED SCRAPYD SERVER !"
 printf "\n"
@@ -165,6 +164,16 @@ sleep 0.5
 
 
 printf "\n"
-echo "installation_succesful" > /home/ubuntu/install_success.txt
+printf "DEPLOYING CODE TO SCRAPYD SERVER"
+printf "\n"
+sleep 0.5
+cd /home/ubuntu/code
+sudo scrapyd-deploy pc_deploy -p pubchem
+echo "deployment_succesful" > /home/ubuntu/deployment_success.txt
+printf "\n"
+printf "DONE WITH ALL INSTALLATIONS.. SYSTEM IS READY!"
+printf "\n"
+
+
 printf "DONE WITH ALL INSTALLATIONS.. SYSTEM IS READY!"
 printf "\n"
