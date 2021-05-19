@@ -165,5 +165,6 @@ sleep 0.5
 
 
 printf "\n"
+echo "installation_succesful" > /home/ubuntu/install_success.txt
 printf "DONE WITH ALL INSTALLATIONS.. SYSTEM IS READY!"
 printf "\n"
