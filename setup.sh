@@ -148,7 +148,7 @@ printf "\n"
 printf "STARTING scrapyd SERVER"
 printf "\n"
 sleep 0.5
-scrapyd > scrapyd.log &
+sudo scrapyd > scrapyd.log &
 printf "\n"
 printf "STARTED SCRAPYD SERVER !"
 printf "\n"
@@ -157,21 +157,25 @@ printf "\n"
 printf "DOWNLOADING CODE FROM S3"
 printf "\n"
 sleep 0.5
-sudo curl https://aionics.s3.us-east-2.amazonaws.com/code/aionics-forage.zip -o /home/ubuntu/code/aionics-forage.zip
-sudo unzip -o /home/ubuntu/code/aionics-forage.zip -d /home/ubuntu/code
+#sudo curl https://aionics.s3.us-east-2.amazonaws.com/code/aionics-forage.zip -o /home/ubuntu/code/aionics-forage.zip
+#sudo unzip -o /home/ubuntu/code/aionics-forage.zip -d /home/ubuntu/code
+cd /home/ubuntu/code
+sudo git clone https://vemulasravan6%40gmail.com-at-714677628526:ok2czZTzEDn5VEQ3ardEkGpIc9S9fxJ9FNdEsjJhTUA\=@git-codecommit.us-east-2.amazonaws.com/v1/repos/aionics-forage
+
+
 sleep 0.5
 printf "CHECK IF CODE AVAILABLE HERE..!"
 sudo chmod -R 777  /home/ubuntu/code
 sudo chown -R ubuntu /home/ubuntu/code
 sudo chgrp -R ubuntu /home/ubuntu/code
-sudo ls -ltrh /home/ubuntu/code/aionics-forage
+sudo ls -ltrh /home/ubuntu/code
 sleep 0.5
 
 printf "\n"
 printf "DEPLOYING CODE TO SCRAPYD SERVER"
 printf "\n"
 sleep 0.5
-cd /home/ubuntu/code/aionics-forage
+cd /home/ubuntu/code
 scrapyd-deploy pc_deploy -p pubchem
 echo "deployment_succesful" > /home/ubuntu/deployment_success.txt
 printf "\n"
