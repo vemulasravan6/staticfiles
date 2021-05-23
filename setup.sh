@@ -175,7 +175,8 @@ printf "\n"
 printf "DEPLOYING CODE TO SCRAPYD SERVER"
 printf "\n"
 sleep 0.5
-cd /home/ubuntu/code
+
+cd /home/ubuntu/code/aionics-forage
 scrapyd-deploy pc_deploy -p pubchem
 echo "deployment_succesful" > /home/ubuntu/deployment_success.txt
 printf "\n"
